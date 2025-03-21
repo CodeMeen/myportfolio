@@ -1,0 +1,127 @@
+.header{
+    display: flex;
+    padding:20px 10px;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    top:0;
+    left: 0;
+    right: 0;
+
+    .otherO{
+        color:var(--primary)
+    }
+    
+    // position: relative;
+    // justify-content: space-evenly;
+    // justify-content: space-around;
+
+
+    .logoName{
+    padding:7px 20px;
+    font-size: 20px;
+    font-family: logostyle;
+    }
+
+    .ytNav{
+        width: 100%;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navpack{
+        width:fit-content;
+        display: flex;
+        align-items: center;
+        gap:50px;
+        padding:5px;
+        border-radius:50px;
+        border:0.9px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.07);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+     
+
+
+        .btn{
+            color:var(--white);
+            padding:3px 5px;
+            cursor: pointer;
+            font-family: montserrat_semibold;
+            transition:0.5s ease;
+            background: rgba(255,255,255,0.2);
+            padding:8px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap:3px;
+
+            &:hover{
+               opacity: 0.5;
+               
+            }
+        }
+    }
+
+    .nav{
+        display: flex;
+        gap:5px;
+        
+
+        .eachNav{
+            font-size: 10px;
+            cursor: pointer;
+            transition: 0.5s ease;
+            color:var(--otherOne);
+            padding:8px 20px;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap:3px;
+
+            &:hover{
+                opacity: 0.5;
+            }
+
+
+            &.active{
+               background: rgba(255,255,255,0.07);
+               color:#fff !important;
+               
+            //    &::before{
+            //     content: "";
+            //     height: 10px;
+            //     width: 100%;
+            //     margin:0px auto;
+            //     position: absolute;
+            //     top:2px;
+            //     // left:20%;
+            //     background: linear-gradient(to bottom,rgba(255,255,255,0.5),transparent);
+            //     z-index: 0;
+            // }
+               
+
+            }
+        }
+
+
+      
+
+      
+    }
+
+
+
+    .trP{
+        height:35px;
+        width: 35px;
+    }
+
+
+   
+}
