@@ -136,13 +136,6 @@ const HomePage = () => {
   const [contactOpen,setContactOpen]=useState(false)
 
 
-  const handleScroll = () => {
-    const element = document.getElementById("target-section");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const handleCopy = (text) => {
   navigator.clipboard.writeText(text).then(() => {
     alert("Copied!");

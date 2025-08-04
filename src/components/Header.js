@@ -22,6 +22,15 @@ const Header=({openContact})=>{
       setCurrentMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
     };
 
+
+  const handleScroll = () => {
+    const element = document.getElementById("target-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+
     return (
         <div className="header">
 
