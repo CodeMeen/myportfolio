@@ -135,13 +135,19 @@ const HomePage = () => {
 
   const [contactOpen,setContactOpen]=useState(false)
 
-  
+
+  const handleScroll = () => {
+    const element = document.getElementById("target-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="homepage">
       <Header openContact={setContactOpen}></Header>
 
-      <div className="rtyu">
+      <div className="rtyu" id="home">
         <div className="glassFilter"></div>
         <div className="circGradientOne"></div>
       </div>
