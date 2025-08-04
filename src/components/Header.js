@@ -23,8 +23,8 @@ const Header=({openContact})=>{
     };
 
 
-  const handleScroll = () => {
-    const element = document.getElementById("target-section");
+  const handleScroll = (target) => {
+    const element = document.getElementById(target);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -44,9 +44,9 @@ const Header=({openContact})=>{
 
 <div className="nav">
    
-  <div className="eachNav active"><HomeIcon size={12}/>Home</div>
-  <div className="eachNav">Works</div>
-  <div className="eachNav">About</div>
+  <div className="eachNav" onClick={()=>handleScroll('home')}><HomeIcon size={12}/>Home</div>
+  <div className="eachNav" onClick={()=>handleScroll('work')}>Works</div>
+  <div className="eachNav" onClick={()=>handleScroll('aboutme')}>About</div>
 </div>
 
 <div className="btn t12" onClick={()=>openContact(true)}>
