@@ -480,6 +480,16 @@ const HomePage = () => {
                     className="click_contact"
                   ></Mail>
                 </a>
+
+                <a href={`mailto:${handles.github}`} target="_blank" rel="noreferrer">
+                  <GithubIcon
+                    size={30}
+                    color={"var(--otherOne)"}
+                    className="click_contact"
+                  ></GithubIcon>
+                </a>
+
+
                 {/* <div className="icon_click whatsapp"></div> */}
               </div>
 
