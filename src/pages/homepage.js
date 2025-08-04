@@ -218,7 +218,7 @@ const HomePage = () => {
         </svg>
       </div>
 
-      <div className="sectionWork">
+      <div className="sectionWork" id="works">
         <div className="workImgTab"></div>
 
         <div className="contentTab workTab">
@@ -389,7 +389,7 @@ const HomePage = () => {
         </svg>
       </div>
 
-      <div className="sectionAboutme">
+      <div className="sectionAboutme" id="aboutme">
         <div className="gradientBack">
           <div className="circGradient"></div>
           <div className="gradientFilter"></div>
