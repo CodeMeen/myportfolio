@@ -12,7 +12,7 @@ import {
   Mail,
   CopyrightIcon,
 } from "lucide-react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 import style from "../styles/homepage.scss";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -143,6 +143,13 @@ const HomePage = () => {
     }
   };
 
+  const handleCopy = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied!");
+  });
+};
+
+
   return (
     <div className="homepage">
       <Header openContact={setContactOpen}></Header>
@@ -173,12 +180,12 @@ const HomePage = () => {
           </div>
         </div>
 
-        <CopyToClipboard text={handles.email}>
-          <div className="copyEmail">
+        {/* <CopyToClipboard text={handles.email}> */}
+          <div className="copyEmail" onClick={()=>handleCopy(handles.email)}>
             <CopyIcon size={14} />
             <div className="">{handles.email}</div>
           </div>
-        </CopyToClipboard>
+        {/* </CopyToClipboard> */}
       </div>
 
       <div className="shortIntro">
