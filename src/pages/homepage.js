@@ -1,8 +1,22 @@
 import Header from "../components/Header";
-import { ArrowRightIcon, CopyIcon } from "lucide-react";
+import { works } from "../works";
+
+import {
+  ArrowRightIcon,
+  CopyIcon,
+  GithubIcon,
+  ArrowUpRight,
+  SparkleIcon,
+  Linkedin,
+  Twitter,
+  Mail,
+  CopyrightIcon,
+} from "lucide-react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import style from "../styles/homepage.scss";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import ContactModal from "../components/Contact";
 
 const HomePage = () => {
   const [skillset, setSkillset] = useState([
@@ -106,6 +120,19 @@ const HomePage = () => {
     },
   ]);
 
+  const getTechName=(name)=>{
+     const obj=skillset.find((eachskill)=>{
+      return eachskill.icon_class === name
+     })
+
+     if(obj){
+      return obj.name
+     }else{
+      return ''
+     }
+  }
+
+
   return (
     <div className="homepage">
       <Header></Header>
@@ -116,14 +143,16 @@ const HomePage = () => {
       </div>
 
       <div className="welcText">
-        I develop and refine ideas<br></br> into seamless, engaging and
-        high-performing<br></br>
-        <span className="dgex">digital experiences</span>
-      </div>
-
-      <div className="introText">
-        Hello, I'm Al-Ameen Olumomi a{" "}
-        <span className="fullst">Full Stack Developer</span>
+        <div className="introText">
+          Hello, I'm Al-Ameen Olumomi a{" "}
+          <span className="fullst">Full Stack Developer</span>
+        </div>
+        <br></br>
+        <div>
+          I develop and refine ideas<br></br> into seamless, engaging and
+          high-performing<br></br>
+          <span className="dgex">digital experiences</span>
+        </div>
       </div>
 
       <div className="actionCont">
@@ -179,17 +208,144 @@ const HomePage = () => {
         </svg>
       </div>
 
+      <div className="sectionWork">
+        <div className="workImgTab"></div>
+
+        <div className="contentTab workTab">
+          <div className="title_side">
+            <div
+              className="title"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "3px",
+              }}
+            >
+              <div>My</div> <div className="tsct animatedTitle">Works</div>
+            </div>
+          </div>
+
+          <div className="workSlide">
+
+
+            {works.map((work,index)=>(
+ <div className="eachCard" key={index}>
+              <div className="twoGrid" >
+                <div className="visual_side">
+                  <div className="card1">
+                    <div className="previewname">{work.name}</div>
+                    <div className="sitepreview" style={{backgroundImage:`url(${work.imgUrl})`}}></div>
+                  </div>
+
+                  <div className="icnF">
+                    {(work.githubUrl && work.githubUrl !=='') && (<NavLink to={work.githubUrl}><GithubIcon size={16} className="icon"></GithubIcon></NavLink>)}
+
+                     {(work.projectUrl && work.projectUrl !=='') && (<NavLink to={work.projectUrl}><ArrowUpRight size={20} className="icon"></ArrowUpRight></NavLink>)}
+                    
+                    {/* <div className="icon github"></div> */}
+                  </div>
+                </div>
+
+                <div className="content_side">
+                  <div className="projectTitle">
+                    {work.name}
+                  </div>
+
+                  <div className="line"></div>
+
+                  <div className="info">
+                    &nbsp;&nbsp;{work.info}
+                  </div>
+
+                 
+                </div>
+              </div>
+
+
+               <div className="points">
+                    {work.features.map((eachFeature,index)=>(
+                       <div className="eachPoint" key={index}>
+                      <SparkleIcon size={13} className="spk"></SparkleIcon>
+                      <div>
+                        {eachFeature}
+                      </div>
+                    </div>
+                    ))}
+
+                  </div>
+
+
+
+              <div className="tStack">
+
+                {work.tech.map((eachTech,index)=>(
+                  <div className="eachstack" key={index}>
+                  <div className={`icon ${eachTech}`}></div>
+                  <div className="text">{getTechName(eachTech)}</div>
+                </div>)
+                )}
+                
+
+
+              </div>
+
+
+            </div>
+            ))}
+
+
+           
+
+      
+          </div>
+        </div>
+      </div>
+
+      <div className="curve down">
+        <svg
+          width="100%"
+          height="80"
+          viewBox="0 0 1200 80"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="downwardGradient">
+              <stop offset="0%" stop-color="transparent" />
+              <stop offset="30%" stop-color="rgba(255, 255, 255, 0.1)" />
+              <stop offset="50%" stop-color="rgba(255, 255, 255, 0.5)" />
+              <stop offset="70%" stop-color="rgba(255, 255, 255, 0.1)" />
+              <stop offset="100%" stop-color="transparent" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M 0 10 Q 600 60, 1200 10"
+            stroke="url(#downwardGradient)"
+            stroke-width="2"
+            fill="transparent"
+          />
+        </svg>
+      </div>
+
       <div className="sectionStack">
         <div className="gradientBack">
           <div className="circGradient"></div>
           <div className="gradientFilter"></div>
         </div>
 
-        <div className="stackCont">
+        <div className="contentTab skillstab">
           <div className="title_side">
             <div className="title">
-              <div>My</div> <div className="tsct animatedTitle">Tech Stack</div>
-              <div className="shortC">I Constantly Try To Improve</div>
+              <div className="text_flex_center">
+                <div>My</div>{" "}
+                <div className="tsct animatedTitle">Tech Stack</div>
+              </div>
+
+              {/* <div className="shortC">I Constantly Try To Improve</div> */}
+              <div className="shortC">
+                Passionate about cutting edge technologies
+              </div>
             </div>
           </div>
 
@@ -232,20 +388,163 @@ const HomePage = () => {
         </svg>
       </div>
 
-      <div className="sectionWork">
+      <div className="sectionAboutme">
+        <div className="gradientBack">
+          <div className="circGradient"></div>
+          <div className="gradientFilter"></div>
+        </div>
 
-        <div className="workTab">
+        <div className="contentTab workTab">
           <div className="title_side">
+            <div className="title_aux">More About Me</div>
+
             <div
               className="title"
-              style={{ display: "flex", alignItems: "center", gap: "2px" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                padding: "8px 0px",
+              }}
             >
-              <div>Curated</div> <div className="tsct animatedTitle">Work</div>
+              <div>Hi there! I'm</div>{" "}
+              <div className="tsct animatedTitle">Al-Ameen</div>
+            </div>
+          </div>
+
+          <div className="aboutGrid">
+            <div className="textSide">
+              <div className="title">
+                <span>
+                  Full-Stack Developer and a little bit of{" "}
+                  <span className="animatedTitle">everything</span>{" "}
+                </span>
+                &nbsp;
+              </div>
+
+              <div className="text">
+                <p>
+                  I'm Al-Ameen Olumomi, a passionate full-stack developer who
+                  thrives on transforming ideas into high-performing digital
+                  products through clean, efficient, and maintainable code.
+                </p>
+                <p>
+                  With strong expertise in React, Next.js, Node.js, and a
+                  growing command of modern web technologies, I specialize in
+                  building full-stack applications that are both intuitive on
+                  the front end and robust under the hood. Whether it’s
+                  designing scalable APIs, optimizing user interfaces, or
+                  streamlining complex workflows, I take pride in delivering
+                  seamless experiences across the entire stack.
+                </p>
+                <p>
+                  What drives me most is problem-solving and continuous
+                  learning. I genuinely enjoy diving into challenging projects
+                  that push my boundaries, exploring new frameworks, and
+                  refining my skills to stay ahead in a fast-evolving tech
+                  landscape. I'm not just focused on writing code — I'm
+                  committed to writing purposeful code that makes a real impact.
+                </p>
+                <p>
+                  When I'm not coding, you'll likely find me exploring
+                  open-source tools, staying updated on the latest in tech, or
+                  collaborating with others to bring new ideas to life. I value
+                  creativity, curiosity, and craftsmanship — and I aim to
+                  reflect that in every project I touch.
+                </p>
+              </div>
+
+              <div className="n_pack">
+                <Linkedin
+                  size={30}
+                  color={"var(--otherOne)"}
+                  className="click_contact"
+                ></Linkedin>
+                <Twitter
+                  size={30}
+                  color={"var(--otherOne)"}
+                  className="click_contact"
+                ></Twitter>
+                <Mail
+                  size={30}
+                  color={"var(--otherOne)"}
+                  className="click_contact"
+                ></Mail>
+                {/* <div className="icon_click whatsapp"></div> */}
+              </div>
+
+              <br></br>
+
+              <div className="connect_btn">
+                <div className="textHover">Let's Connect</div>
+                <div className="goArr">
+                  <ArrowRightIcon size={14} />
+                </div>
+              </div>
+            </div>
+
+            <div className="myImg">
+              <div className="img_content_gradient">
+                <div className="clickpack">
+                  <Mail size={20} className="click_contact"></Mail>
+                  <div className="icon_contact whatsapp"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
+      <div className="popup">
 
+      </div>
+
+      <ContactModal></ContactModal>
+
+      <div className="endingdetail">
+        <div className="innergradient">
+          <div>
+            <div className="footerlogoName">
+              <span>A</span>
+              <span className="otherO">O</span>
+            </div>
+
+            <div className="v_text">
+              From Vision To Execution Let Us Bring Your Project To Life
+            </div>
+
+            <div className="fgh_cont">
+              <div className="connect_btn">
+                <div className="textHover">Let's Connect</div>
+                <div className="goArr">
+                  <ArrowRightIcon size={14} />
+                </div>
+              </div>
+            </div>
+
+            <div className="fooText">
+              <div className="title">
+                I'm available for full-time roles & freelance projects.
+              </div>
+              <div className="text">
+                I thrive on crafting dynamic web applications, and delivering
+                seamless user experiences.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer">
+        <div className="footer_content">
+
+          <div className="footer_flex">
+            <div className="logoName"><span>A</span><span className="otherO">O</span></div>
+            <CopyrightIcon size={14}></CopyrightIcon>
+            <div className="rights_text">2025. All rights reserved</div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

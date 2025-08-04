@@ -25,7 +25,7 @@ const Header=()=>{
     return (
         <div className="header">
 
-           <dv className="logoName"><span>A</span><span className="otherO">O</span></dv>
+           <div className="logoName"><span>A</span><span className="otherO">O</span></div>
 
            
            <div className="ytNav">
@@ -33,7 +33,7 @@ const Header=()=>{
 
 <div className="nav">
   <div className="eachNav active"><HomeIcon size={12}/>Home</div>
-  <div className="eachNav">Work</div>
+  <div className="eachNav">Works</div>
   <div className="eachNav">About</div>
 </div>
 
