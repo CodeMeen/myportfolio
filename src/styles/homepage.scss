@@ -630,7 +630,7 @@ z-index: -1;
         content: "";
         position: absolute;
         top: 0;
-        left: -150%;
+        left: -200%;
         width: 90%;
         height: 100%;
         background: linear-gradient(120deg,transparent, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0), transparent);
@@ -643,7 +643,7 @@ z-index: -1;
     &:hover{
       
                 &::before{
-                    left: 150%;
+                    left: 200%;
                     opacity: 1;
                     transition: all 0.4s ease-in-out;
                 }    
