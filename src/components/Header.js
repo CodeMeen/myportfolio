@@ -45,7 +45,7 @@ const Header=({openContact})=>{
 <div className="nav">
    
   <div className="eachNav" onClick={()=>handleScroll('home')}><HomeIcon size={12}/>Home</div>
-  <div className="eachNav" onClick={()=>handleScroll('work')}>Works</div>
+  <div className="eachNav" onClick={()=>handleScroll('works')}>Works</div>
   <div className="eachNav" onClick={()=>handleScroll('aboutme')}>About</div>
 </div>
 
