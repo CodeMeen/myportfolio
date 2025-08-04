@@ -438,7 +438,6 @@ z-index: -1;
     font-size: 13px;
     border-radius: 50px;
     align-items: center;
-
     .icon{
         height: 17px;
         width: 17px;
@@ -626,11 +625,12 @@ z-index: -1;
     cursor: pointer;
 
 
+
     &::before{
         content: "";
         position: absolute;
         top: 0;
-        left: -100%;
+        left: -150%;
         width: 90%;
         height: 100%;
         background: linear-gradient(120deg,transparent, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0), transparent);
@@ -643,7 +643,7 @@ z-index: -1;
     &:hover{
       
                 &::before{
-                    left: 120%;
+                    left: 150%;
                     opacity: 1;
                     transition: all 0.4s ease-in-out;
                 }    
