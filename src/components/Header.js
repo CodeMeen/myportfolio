@@ -3,7 +3,7 @@ import { ArrowRightIcon,HomeIcon } from "lucide-react";
 import style from '../styles/header.scss'
 
 
-const Header=()=>{
+const Header=({openContact})=>{
 
     const [currentMode, setCurrentMode] = useState("dark");
 
@@ -31,13 +31,16 @@ const Header=()=>{
            <div className="ytNav">
            <div className="navpack">
 
+            <div className="hderlogoName"><span>A</span><span className="otherO">O</span></div>
+
 <div className="nav">
+   
   <div className="eachNav active"><HomeIcon size={12}/>Home</div>
   <div className="eachNav">Works</div>
   <div className="eachNav">About</div>
 </div>
 
-<div className="btn t12">
+<div className="btn t12" onClick={()=>openContact(true)}>
   Contact Me <ArrowRightIcon size={12}/>
 </div>
 

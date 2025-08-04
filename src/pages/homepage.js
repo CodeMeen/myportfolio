@@ -17,6 +17,7 @@ import style from "../styles/homepage.scss";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import ContactModal from "../components/Contact";
+import { handles } from "../handles";
 
 const HomePage = () => {
   const [skillset, setSkillset] = useState([
@@ -120,22 +121,25 @@ const HomePage = () => {
     },
   ]);
 
-  const getTechName=(name)=>{
-     const obj=skillset.find((eachskill)=>{
-      return eachskill.icon_class === name
-     })
+  const getTechName = (name) => {
+    const obj = skillset.find((eachskill) => {
+      return eachskill.icon_class === name;
+    });
 
-     if(obj){
-      return obj.name
-     }else{
-      return ''
-     }
-  }
+    if (obj) {
+      return obj.name;
+    } else {
+      return "";
+    }
+  };
 
+  const [contactOpen,setContactOpen]=useState(false)
+
+  
 
   return (
     <div className="homepage">
-      <Header></Header>
+      <Header openContact={setContactOpen}></Header>
 
       <div className="rtyu">
         <div className="glassFilter"></div>
@@ -156,23 +160,23 @@ const HomePage = () => {
       </div>
 
       <div className="actionCont">
-        <div className="btn">
+        <div className="btn" onClick={()=>setContactOpen(true)}>
           <div className="textHover">Let's Connect</div>
           <div className="goArr">
             <ArrowRightIcon size={14} />
           </div>
         </div>
 
-        <CopyToClipboard text={"alameenolumomi@gmail.com"}>
+        {/* <CopyToClipboard text={handles.email}>
           <div className="copyEmail">
             <CopyIcon size={14} />
-            <div className="">alameenolumomi@gmail.com</div>
+            <div className="">{handles.email}</div>
           </div>
-        </CopyToClipboard>
+        </CopyToClipboard> */}
       </div>
 
       <div className="shortIntro">
-        <div className="title">A Short Intro</div>
+        {/* <div className="title">A Short Intro</div> */}
 
         <div className="text">
           I am a full-stack developer with more than 6 years of expertise. I
@@ -227,77 +231,66 @@ const HomePage = () => {
           </div>
 
           <div className="workSlide">
-
-
-            {works.map((work,index)=>(
- <div className="eachCard" key={index}>
-              <div className="twoGrid" >
-                <div className="visual_side">
-                  <div className="card1">
-                    <div className="previewname">{work.name}</div>
-                    <div className="sitepreview" style={{backgroundImage:`url(${work.imgUrl})`}}></div>
-                  </div>
-
-                  <div className="icnF">
-                    {(work.githubUrl && work.githubUrl !=='') && (<NavLink to={work.githubUrl}><GithubIcon size={16} className="icon"></GithubIcon></NavLink>)}
-
-                     {(work.projectUrl && work.projectUrl !=='') && (<NavLink to={work.projectUrl}><ArrowUpRight size={20} className="icon"></ArrowUpRight></NavLink>)}
-                    
-                    {/* <div className="icon github"></div> */}
-                  </div>
-                </div>
-
-                <div className="content_side">
-                  <div className="projectTitle">
-                    {work.name}
-                  </div>
-
-                  <div className="line"></div>
-
-                  <div className="info">
-                    &nbsp;&nbsp;{work.info}
-                  </div>
-
-                 
-                </div>
-              </div>
-
-
-               <div className="points">
-                    {work.features.map((eachFeature,index)=>(
-                       <div className="eachPoint" key={index}>
-                      <SparkleIcon size={13} className="spk"></SparkleIcon>
-                      <div>
-                        {eachFeature}
-                      </div>
+            {works.map((work, index) => (
+              <div className="eachCard" key={index}>
+                <div className="twoGrid">
+                  <div className="visual_side">
+                    <div className="card1">
+                      <div className="previewname">{work.name}</div>
+                      <div
+                        className="sitepreview"
+                        style={{ backgroundImage: `url(${work.imgUrl})` }}
+                      ></div>
                     </div>
-                    ))}
 
+                    <div className="icnF">
+                      {work.githubUrl && work.githubUrl !== "" && (
+                        <NavLink to={work.githubUrl}>
+                          <GithubIcon size={16} className="icon"></GithubIcon>
+                        </NavLink>
+                      )}
+
+                      {work.projectUrl && work.projectUrl !== "" && (
+                        <NavLink to={work.projectUrl}>
+                          <ArrowUpRight
+                            size={20}
+                            className="icon"
+                          ></ArrowUpRight>
+                        </NavLink>
+                      )}
+
+                      {/* <div className="icon github"></div> */}
+                    </div>
                   </div>
 
+                  <div className="content_side">
+                    <div className="projectTitle">{work.name}</div>
 
+                    <div className="line"></div>
 
-              <div className="tStack">
+                    <div className="info">&nbsp;&nbsp;{work.info}</div>
+                  </div>
+                </div>
 
-                {work.tech.map((eachTech,index)=>(
-                  <div className="eachstack" key={index}>
-                  <div className={`icon ${eachTech}`}></div>
-                  <div className="text">{getTechName(eachTech)}</div>
-                </div>)
-                )}
-                
+                <div className="points">
+                  {work.features.map((eachFeature, index) => (
+                    <div className="eachPoint" key={index}>
+                      <SparkleIcon size={13} className="spk"></SparkleIcon>
+                      <div>{eachFeature}</div>
+                    </div>
+                  ))}
+                </div>
 
-
+                <div className="tStack">
+                  {work.tech.map((eachTech, index) => (
+                    <div className="eachstack" key={index}>
+                      <div className={`icon ${eachTech}`}></div>
+                      <div className="text">{getTechName(eachTech)}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-
-            </div>
             ))}
-
-
-           
-
-      
           </div>
         </div>
       </div>
@@ -429,7 +422,7 @@ const HomePage = () => {
                   products through clean, efficient, and maintainable code.
                 </p>
                 <p>
-                  With strong expertise in React, Next.js, Node.js, and a
+                  With strong expertise in <b>React</b>, <b>Next.js</b>, <b>Node.js</b>, and a
                   growing command of modern web technologies, I specialize in
                   building full-stack applications that are both intuitive on
                   the front end and robust under the hood. Whether it’s
@@ -455,27 +448,36 @@ const HomePage = () => {
               </div>
 
               <div className="n_pack">
+                
+                 <a href={handles.linkedin} target="_blank" rel="noreferrer" >
                 <Linkedin
                   size={30}
                   color={"var(--otherOne)"}
                   className="click_contact"
                 ></Linkedin>
+                </a>
+
+                 <a href={handles.twitter} target="_blank" rel="noreferrer">
                 <Twitter
                   size={30}
                   color={"var(--otherOne)"}
                   className="click_contact"
                 ></Twitter>
-                <Mail
-                  size={30}
-                  color={"var(--otherOne)"}
-                  className="click_contact"
-                ></Mail>
+                </a>
+
+                <a href={`mailto:${handles.email}`} target="_blank" rel="noreferrer">
+                  <Mail
+                    size={30}
+                    color={"var(--otherOne)"}
+                    className="click_contact"
+                  ></Mail>
+                </a>
                 {/* <div className="icon_click whatsapp"></div> */}
               </div>
 
               <br></br>
 
-              <div className="connect_btn">
+              <div className="connect_btn" onClick={()=>setContactOpen(true)}>
                 <div className="textHover">Let's Connect</div>
                 <div className="goArr">
                   <ArrowRightIcon size={14} />
@@ -486,8 +488,15 @@ const HomePage = () => {
             <div className="myImg">
               <div className="img_content_gradient">
                 <div className="clickpack">
-                  <Mail size={20} className="click_contact"></Mail>
-                  <div className="icon_contact whatsapp"></div>
+                  <a href={`mailto:${handles.email}`} target="_blank" rel="noreferrer">
+                    <Mail size={20} className="click_contact"></Mail>
+                  </a>
+
+                  
+
+                  <a href={handles.whatsapp} target="_blank" rel="noreferrer">
+                    <div className="icon_contact whatsapp"></div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -495,11 +504,8 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="popup">
-
-      </div>
-
-      <ContactModal></ContactModal>
+        <ContactModal toggle={contactOpen} setToggle={setContactOpen}></ContactModal>
+    
 
       <div className="endingdetail">
         <div className="innergradient">
@@ -514,7 +520,7 @@ const HomePage = () => {
             </div>
 
             <div className="fgh_cont">
-              <div className="connect_btn">
+              <div className="connect_btn" onClick={()=>setContactOpen(true)}>
                 <div className="textHover">Let's Connect</div>
                 <div className="goArr">
                   <ArrowRightIcon size={14} />
@@ -537,13 +543,14 @@ const HomePage = () => {
 
       <div className="footer">
         <div className="footer_content">
-
           <div className="footer_flex">
-            <div className="logoName"><span>A</span><span className="otherO">O</span></div>
+            <div className="logoName">
+              <span>A</span>
+              <span className="otherO">O</span>
+            </div>
             <CopyrightIcon size={14}></CopyrightIcon>
             <div className="rights_text">2025. All rights reserved</div>
           </div>
-
         </div>
       </div>
     </div>

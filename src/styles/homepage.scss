@@ -669,7 +669,7 @@ z-index: -1;
     padding-bottom: 10px;
 
     .info{
-        font-size: 14px;
+        font-size: 15px;
         padding:13px 0px;
         white-space: pre-wrap;
     }
@@ -695,6 +695,7 @@ z-index: -1;
   gap:10px;
   width: 80%;
   margin: 10px auto;
+  margin-top: 60px;
 //   margin-top: 30px;
 
   .eachstack{
@@ -731,7 +732,7 @@ z-index: -1;
     padding:0px 10px;
 
     .eachPoint{
-        font-size: 12px;
+        font-size: 13px;
         display: flex;
         margin: 13px 0px;
         gap:7px;
@@ -1053,4 +1054,338 @@ font-size: 23px;
         font-weight: bold;
        font-family: logostyle;
     }
+
+
+    // RESPONSIVE CSS
+
+
+@media (max-width: 1550px) { 
+   
+}
+
+
+@media (max-width: 1450px) { 
+    .workTab{
+        width: 90%;
+    }
+   
+}
+
+@media (max-width: 1350px) { 
+
+    .twoGrid{
+        grid-template-columns: 1fr;
+    }
+
+    .content_side{
+        padding: 30px 20px;
+    }
+
+    .sitepreview{
+        width: 80%;
+    }
+
+    .card1{
+        height: 250px;
+    }
+
+    .previewname{
+        font-size: 20px;
+    }
+
+    .points{
+        padding: 0px 20px;
+    }
+   
+  }
+
+  @media (max-width: 1300px) { 
+   
+  }
+
+  @media (max-width: 1205px) { 
+
+    .contentTab{
+        width: 80%;
+    }
+
+    .myImg{
+        width: 100%;
+    }
+
+    .aboutGrid{
+     grid-template-columns: 70% calc(30% - 20px);
+     gap:20px;
+    }
+   
+
+  }
+
+  @media (max-width: 1110px) { 
+
+    .welcText{
+        width: 80%;
+    }
+
+   
+  }
+
+
+
+  @media (max-width: 1030px) { 
+
+  }
+
+  @media (max-width: 1100px) { 
     
+   .workSlide{
+    gap:20px;
+    row-gap:80px;
+   }
+
+   .workTab{
+    width: 100%;
+    padding: 0px 20px;
+   }
+
+
+    .contentTab{
+        width: 90%;
+       
+    }
+
+   
+  }
+
+  @media (max-width: 980px) { 
+    
+  }
+
+
+  @media (max-width: 900px) { 
+
+    .shortIntro{
+        width: 80%;
+    }
+
+  }
+
+
+  @media (max-width: 870px) { 
+
+    .footerlogoName{
+        font-size: 40px;
+    }
+
+    .v_text{
+        font-size: 28px;
+    }
+
+    .innergradient{
+        padding: 20px;
+    }
+
+    .endingdetail{
+        height: 600px;
+    }
+    .title_side{
+        .title{
+            font-size: 30px;
+        }
+    }
+
+    .workSlide{
+        grid-template-columns: 1fr;
+    }
+
+    .workTab{
+        width: 80%;
+    }
+
+    .card1{
+        height: 320px;
+    }
+
+    .workImgTab{
+        width: 95%;
+        top:-50px;
+    }
+
+    .sectionWork{
+        margin-top: 0px;
+    }
+
+
+    .aboutGrid{
+        grid-template-columns: 1fr;
+    }
+
+    .myImg{
+        width: 50%;
+        margin: 0px auto;
+    }
+
+
+
+  }
+
+  @media (max-width: 750px) { 
+
+       .welcText{
+        font-size: 33px;
+    }
+
+    .dgex{
+        font-size: 36px;
+    }
+
+    .myImg{
+        width: 70%;
+        margin: 0px auto;
+        height: 400px;
+    }
+
+   
+  }
+
+  @media (max-width: 700px) { 
+
+
+    .workTab{
+        width: 90%;
+    }
+
+    .card1{
+        height: 320px;
+    }
+
+     .contentTab{
+        width: 100%;
+        padding: 0px 20px;
+    }
+
+    .techStack{
+        padding: 30px 0px;
+    }
+
+    .curve{
+        margin-top: 40px;
+    }
+
+
+    .sectionAboutme{
+        padding-top: 30px;
+    }
+
+    .myImg{
+        width: 70%;
+        margin: 0px auto;
+        height: 370px;
+    }
+
+
+    .v_text{
+        width: 90%;
+        font-size: 25px;
+    }
+
+ 
+  }
+
+
+  @media (max-width: 630px) { 
+
+    .fooText{
+        .title{
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .text{
+            font-size: 16px;
+        }
+    }
+
+
+
+        .welcText{
+        font-size: 30px;
+    }
+
+    .dgex{
+        font-size: 33px;
+    }
+
+       .title_side{
+        .title{
+            font-size: 28px;
+        }
+    }
+
+   
+  }
+
+
+  @media (max-width: 550px) { 
+
+    .footer_flex{
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+     .workTab{
+        width: 100%;
+    }
+
+    .card1{
+        height: 280px;
+    }
+
+    .workSlide{
+        padding-top: 10px;
+    }
+
+    .welcText{
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 150px;
+    }
+
+    .textSide{
+        padding: 20px;
+    }
+  }
+
+
+  @media (max-width: 500px) { 
+  .myImg{
+        width: 90%;
+        margin: 0px auto;
+        height: 320px;
+    }
+  }
+
+  @media (max-width: 485px) { 
+  
+  }
+
+  @media (max-width: 450px) { 
+ 
+  }
+
+  @media (max-width: 400px) { 
+
+  }
+
+  @media (max-width: 380px) { 
+
+  }
+
+  @media (max-width: 340px) { 
+
+  }
+    
+
+ 
