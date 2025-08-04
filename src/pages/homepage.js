@@ -167,12 +167,12 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* <CopyToClipboard text={handles.email}>
+        <CopyToClipboard text={handles.email}>
           <div className="copyEmail">
             <CopyIcon size={14} />
             <div className="">{handles.email}</div>
           </div>
-        </CopyToClipboard> */}
+        </CopyToClipboard>
       </div>
 
       <div className="shortIntro">
@@ -245,18 +245,20 @@ const HomePage = () => {
 
                     <div className="icnF">
                       {work.githubUrl && work.githubUrl !== "" && (
-                        <NavLink to={work.githubUrl}>
+                        <a href={work.githubUrl} target="_blank" style={{display:'flex',alignItems:'center',gap:'10px',padding:'10px 0px'}}>
+                          
                           <GithubIcon size={16} className="icon"></GithubIcon>
-                        </NavLink>
+                        </a>
                       )}
 
                       {work.projectUrl && work.projectUrl !== "" && (
-                        <NavLink to={work.projectUrl}>
+                        <a   target="_blank" href={work.projectUrl} style={{display:'flex',alignItems:'center',gap:'10px',padding:'10px 0px'}}>
+                          visit live
                           <ArrowUpRight
                             size={20}
                             className="icon"
                           ></ArrowUpRight>
-                        </NavLink>
+                        </a>
                       )}
 
                       {/* <div className="icon github"></div> */}

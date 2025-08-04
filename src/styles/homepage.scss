@@ -139,6 +139,7 @@ z-index: -1;
 .actionCont{
      width: fit-content;
      display:flex;
+     flex-direction: column;
      gap:20px;
      align-items: center;
 
